@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class CardTable extends StatelessWidget {
   const CardTable({
@@ -72,6 +71,36 @@ class _SingleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return _CardBackground(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            backgroundColor: color,
+            radius: 30,
+            child: Icon(icon),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            text,
+            style: TextStyle(
+              color: color,
+              fontSize: 18,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _CardBackground extends StatelessWidget {
+  final Widget child;
+
+  const _CardBackground({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
     final boxDecoration = BoxDecoration(
       color: const Color.fromRGBO(62, 66, 107, 0.7),
       borderRadius: BorderRadius.circular(20),
@@ -86,24 +115,7 @@ class _SingleCard extends StatelessWidget {
           child: Container(
             height: 180,
             decoration: boxDecoration,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundColor: color,
-                  radius: 30,
-                  child: Icon(icon),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  text,
-                  style: TextStyle(
-                    color: color,
-                    fontSize: 18,
-                  ),
-                )
-              ],
-            ),
+            child: child,
           ),
         ),
       ),

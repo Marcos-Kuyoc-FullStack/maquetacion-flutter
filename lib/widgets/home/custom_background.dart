@@ -30,7 +30,7 @@ class CustomBackground extends StatelessWidget {
 }
 
 class _PinkBox extends StatelessWidget {
-  const _PinkBox({super.key});
+  const _PinkBox();
 
   @override
   Widget build(BuildContext context) {
