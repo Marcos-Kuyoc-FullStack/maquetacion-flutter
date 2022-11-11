@@ -29,7 +29,8 @@ class _HomeBody extends StatelessWidget {
       child: Column(
         children: const [
           // Titulos
-          PageTitle()
+          PageTitle(),
+          CardTable()
         ],
       ),
     );
